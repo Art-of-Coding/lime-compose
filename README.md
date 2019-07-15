@@ -8,7 +8,7 @@ Also see [@art-of-coding/lime](https://github.com/Art-of-Coding/lime).
 ## Example
 
 ```ts
-import compose from '@art-of-coding/compose'
+import compose from '@art-of-coding/lime-compose'
 
 const composed = compose(
   async (ctx, next) => {
