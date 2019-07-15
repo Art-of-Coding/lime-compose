@@ -1,7 +1,7 @@
 # Compose
 
-Simple utility to compose multiple async/await middleware functions into a single,
-callable function.
+Simple utility to compose multiple async/await middleware functions into a single
+middleware function.
 
 Also see [@art-of-coding/lime](https://github.com/Art-of-Coding/lime).
 
