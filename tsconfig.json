@@ -5,8 +5,8 @@
     "moduleResolution": "node",
     "removeComments": true,
     "preserveConstEnums": true,
-    "noImplicitAny": true,
     "strict": true,
+    "strictNullChecks": false,
     "declaration": true,
     "outDir": "./dist"
   },
