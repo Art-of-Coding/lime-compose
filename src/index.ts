@@ -28,7 +28,7 @@ export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): Middle
       }
 
       if (fn) {
-        await fn(ctx, () => dispatch(i + 1))
+        await fn(ctx, dispatch.bind(null, i + 1))
       }
     }
 
