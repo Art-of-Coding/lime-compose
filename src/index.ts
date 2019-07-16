@@ -13,7 +13,7 @@ export interface MiddlewareFunction<C = Context> {
 }
 
 export function compose<C = Context> (...stack: MiddlewareFunction<C>[]) {
-  return (ctx: C, next?: NextFunction) => {
+  return async (ctx: C, next?: NextFunction) => {
     let index = -1
 
     const dispatch = async (i: number) => {
