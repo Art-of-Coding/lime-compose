@@ -5,6 +5,12 @@ middleware function.
 
 Also see [@art-of-coding/lime](https://github.com/Art-of-Coding/lime).
 
+## Install
+
+```
+npm i @art-of-coding/lime-compose
+```
+
 ## Example
 
 ```ts
