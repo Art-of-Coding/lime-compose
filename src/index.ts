@@ -22,7 +22,7 @@ export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): Middle
       }
 
       index = i
-      let fn = stack[i]
+      let fn: any = stack[i]
       if (i === stack.length) {
         fn = next
       }
