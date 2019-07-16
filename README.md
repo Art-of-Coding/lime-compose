@@ -11,14 +11,34 @@ Also see [@art-of-coding/lime](https://github.com/Art-of-Coding/lime).
 npm i @art-of-coding/lime-compose
 ```
 
+## API
+
+#### compose()
+
+```ts
+compose<C = Context> (...middlewares: MiddlewareFunction<C>[]) => MiddlewareFunction<C>
+```
+
+Composes the middlewares into a single middleware function.
+
+TypeScript users can provide a context definition (`C`) which allows type checking
+within the middlewares. For more information about type checking see [index.ts](src/index.ts).
+
 ## Example
 
 ```ts
-import compose from '@art-of-coding/lime-compose'
+import compose, { Context } from '@art-of-coding/lime-compose'
 
-const composed = compose(
+// Optional context definition
+// May extend `Context`, but this is not necessary
+interface MyContext extends Context {
+  age?: number
+}
+
+const composed = compose<MyContext>(
   async (ctx, next) => {
     // 1st middleware
+    ctx.age = 18
     await next()
   },
   async (ctx, next) => {
@@ -32,9 +52,9 @@ const composed = compose(
 
 const ctx = {}
 composed(ctx).then(() => {
-  //
+  // middleware completed
 }).catch(err => {
-  //
+  // middleware error
 })
 ```
 
