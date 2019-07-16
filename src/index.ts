@@ -12,7 +12,7 @@ export interface MiddlewareFunction<C = Context> {
   (ctx: C, next?: NextFunction): Promise<void>
 }
 
-export function compose<C = Context> (...stack: MiddlewareFunction<C>[]) {
+export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): MiddlewareFunction<C> {
   return async (ctx: C, next?: NextFunction) => {
     let index = -1
 
