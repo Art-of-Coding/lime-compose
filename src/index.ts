@@ -22,13 +22,12 @@ export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): Middle
       }
 
       index = i
-      let fn: any = stack[i]
-      if (i === stack.length) {
-        fn = next
-      }
+      const fn = stack[i]
 
       if (fn) {
-        await fn(ctx, dispatch.bind(null, i + 1))
+        return fn(ctx, dispatch.bind(null, i + 1))
+      } else if (index === i && next) {
+        return next()
       }
     }
 
