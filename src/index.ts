@@ -9,14 +9,14 @@ export interface NextFunction {
 }
 
 export interface MiddlewareFunction<C = Context> {
-  (ctx: C, next?: NextFunction): Promise<void>
+  (ctx: C, next: NextFunction): Promise<void>
 }
 
 export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): MiddlewareFunction<C> {
   return async (ctx: C, next?: NextFunction) => {
     let index = -1
 
-    const dispatch = async (i: number) => {
+    const dispatch = async (i: number): Promise<void> => {
       if (i <= index) {
         throw new Error('next() called multiple times')
       }
