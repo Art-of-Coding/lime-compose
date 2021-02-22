@@ -1,5 +1,8 @@
 # Compose
 
+**Deprecated**. Use [@art-of-coding/compose](https://github.com/Art-of-Coding/compose)
+instead.
+
 Simple utility to compose multiple async/await middleware functions into a single
 middleware function.
 
