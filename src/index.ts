@@ -4,16 +4,12 @@ export interface Context {
   [x: string]: any
 }
 
-export interface NextFunction {
-  (): Promise<void>
-}
-
 export interface MiddlewareFunction<C = Context> {
-  (ctx: C, next: NextFunction): Promise<void>
+  (ctx: C, next: () => Promise<void>): Promise<void>
 }
 
 export function compose<C = Context> (...stack: MiddlewareFunction<C>[]): MiddlewareFunction<C> {
-  return async (ctx: C, next?: NextFunction) => {
+  return async (ctx: C, next?: () => Promise<void>) => {
     let index = -1
 
     const dispatch = async (i: number): Promise<void> => {
